@@ -369,6 +369,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
             }
           },
           decoration: widget.chipDisplay!.decoration,
+          padding: widget.chipDisplay!.padding,
           chipColor: widget.chipDisplay!.chipColor ??
               ((widget.selectedColor != null &&
                       widget.selectedColor != Colors.transparent)
