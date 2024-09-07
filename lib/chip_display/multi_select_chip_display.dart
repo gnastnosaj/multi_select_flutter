@@ -20,6 +20,8 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
   /// Style the Container that makes up the chip display.
   final BoxDecoration? decoration;
 
+  final EdgeInsetsGeometry? padding;
+
   /// Style the text on the chips.
   final TextStyle? textStyle;
 
@@ -54,6 +56,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
     this.chipColor,
     this.alignment,
     this.decoration,
+    this.padding,
     this.textStyle,
     this.colorator,
     this.icon,
@@ -73,6 +76,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
     this.chipColor,
     this.alignment,
     this.decoration,
+    this.padding,
     this.textStyle,
     this.colorator,
     this.icon,
@@ -89,7 +93,7 @@ class MultiSelectChipDisplay<V> extends StatelessWidget {
     return Container(
       decoration: decoration,
       alignment: alignment ?? Alignment.centerLeft,
-      padding: EdgeInsets.symmetric(horizontal: scroll ? 0 : 10),
+      padding: padding ?? EdgeInsets.symmetric(horizontal: scroll ? 0 : 10),
       child: scroll
           ? Container(
               width: MediaQuery.of(context).size.width,
