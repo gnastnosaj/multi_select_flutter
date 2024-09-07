@@ -456,7 +456,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
             _showBottomSheet(context);
           },
           child: Container(
-            padding: widget.state != null ? widget.padding ?? EdgeInsets.all(10),
+            padding: widget.state != null ? widget.padding ?? EdgeInsets.all(10) : widget.padding,
             decoration: widget.state != null
                 ? widget.decoration ??
                     BoxDecoration(
