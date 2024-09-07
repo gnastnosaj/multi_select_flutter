@@ -11,6 +11,8 @@ class MultiSelectBottomSheetField<V> extends FormField<List<V>> {
   /// Style the Container that makes up the field.
   final BoxDecoration? decoration;
 
+  final EdgeInsetsGeometry? padding;
+
   /// Set text that is displayed on the button.
   final Text? buttonText;
 
@@ -120,6 +122,7 @@ class MultiSelectBottomSheetField<V> extends FormField<List<V>> {
     this.buttonIcon,
     this.listType,
     this.decoration,
+    this.padding,
     this.onSelectionChanged,
     this.chipDisplay,
     this.initialValue = const [],
@@ -160,6 +163,7 @@ class MultiSelectBottomSheetField<V> extends FormField<List<V>> {
                   _MultiSelectBottomSheetFieldView<V>(
                 items: items,
                 decoration: decoration,
+                padding: padding,
                 unselectedColor: unselectedColor,
                 colorator: colorator,
                 itemsTextStyle: itemsTextStyle,
@@ -199,6 +203,7 @@ class MultiSelectBottomSheetField<V> extends FormField<List<V>> {
 // ignore: must_be_immutable
 class _MultiSelectBottomSheetFieldView<V> extends StatefulWidget {
   final BoxDecoration? decoration;
+  final EdgeInsetsGeometry? padding;
   final Text? buttonText;
   final Icon? buttonIcon;
   final List<MultiSelectItem<V>> items;
@@ -239,6 +244,7 @@ class _MultiSelectBottomSheetFieldView<V> extends StatefulWidget {
     this.buttonIcon,
     this.listType,
     this.decoration,
+    this.padding,
     this.onSelectionChanged,
     this.onConfirm,
     this.chipDisplay,
@@ -276,6 +282,7 @@ class _MultiSelectBottomSheetFieldView<V> extends StatefulWidget {
         buttonIcon = field.buttonIcon,
         listType = field.listType,
         decoration = field.decoration,
+        padding = field.padding,
         onSelectionChanged = field.onSelectionChanged,
         onConfirm = field.onConfirm,
         chipDisplay = field.chipDisplay,
@@ -449,6 +456,7 @@ class __MultiSelectBottomSheetFieldViewState<V>
             _showBottomSheet(context);
           },
           child: Container(
+            padding: widget.state != null ? widget.padding ?? EdgeInsets.all(10),
             decoration: widget.state != null
                 ? widget.decoration ??
                     BoxDecoration(
@@ -472,7 +480,6 @@ class __MultiSelectBottomSheetFieldViewState<V>
                       ),
                     )
                 : widget.decoration,
-            padding: EdgeInsets.all(10),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
