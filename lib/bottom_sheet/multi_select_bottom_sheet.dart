@@ -295,9 +295,7 @@ class _MultiSelectBottomSheetState<T> extends State<MultiSelectBottomSheet<T>> {
                               });
                             },
                           )
-                        : Padding(
-                            padding: EdgeInsets.all(15),
-                          ),
+                        : Container(),
                   ],
                 ),
               ),
